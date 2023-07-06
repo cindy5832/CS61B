@@ -73,12 +73,12 @@ public class IntListExercises {
         if (lst == null) {
             return false;
         }
-        System.out.println(lst);
         boolean currElemIsPrime = Primes.isPrime(lst.first);
         if (currElemIsPrime) {
             lst.first *= lst.first;
         }
 
-        return currElemIsPrime || squarePrimes(lst.rest);
+        // 第一個為true 不會執行第二個
+        return squarePrimes(lst.rest) || currElemIsPrime;
     }
 }
