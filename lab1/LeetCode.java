@@ -1,20 +1,23 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class LeetCode {
     public static void main(String[] args) {
-        String s = "babbabbabbabbab";
-        System.out.println(repeatedSubstringPattern(s));
-//        System.out.println(s.substring(0, 3));
+        int[] nums = {8, 1, 2, 2, 3};
+        int n = 14;
+        System.out.println(smallerNumbersThanCurrent(nums));
+
     }
 
-    public static boolean repeatedSubstringPattern(String s) {
-        int l = s.length();
-        for (int i = l / 2; i > 0; i--) {
-            String s1 = s.substring(0, i);
-            StringBuilder st = new StringBuilder();
-            for (int j = 1; j <= l / i; j++) {
-                st.append(s1);
+    public static int[] smallerNumbersThanCurrent(int[] nums) {
+        int[] small = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            int count = 0;
+            for (int a : nums) {
+                if (nums[i] > a) count++;
             }
-            if (st.toString().equals(s)) return true;
+            small[i] = count;
         }
-        return false;
+        return small;
     }
 }
